@@ -12,6 +12,11 @@ import io.jsonwebtoken.JwtParser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
+/* 
+ * Copy paste 
+ * 
+ * But study something about this.
+ * */
 @Component
 public class JwtUtils {
 

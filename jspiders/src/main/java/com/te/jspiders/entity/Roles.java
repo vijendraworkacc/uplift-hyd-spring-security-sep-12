@@ -19,6 +19,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/*
+ * Roles class has only two fields i.e. roleId and roleName 
+ * and also roleName is unique for the class so that we don't store 
+ * multiple roles with different primary key.
+ * 
+ * This class also had a bi-directional ManyToMany relationship with the class 
+ * AppUser.
+ * */
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

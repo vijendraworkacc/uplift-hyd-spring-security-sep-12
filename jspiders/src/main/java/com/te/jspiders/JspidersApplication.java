@@ -29,6 +29,11 @@ public class JspidersApplication {
 		SpringApplication.run(JspidersApplication.class, args);
 	}
 
+	/*
+	 * CommandLineRunner is used to execute the code when the application started to
+	 * execute. And here we are storing the roles so that the are readily available
+	 * in the database. Also store admin data in Admin table and AppUser table.
+	 */
 	@Bean
 	public CommandLineRunner runner() {
 		return args -> {

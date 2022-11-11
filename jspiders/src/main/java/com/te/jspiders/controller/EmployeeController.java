@@ -1,34 +1,31 @@
 package com.te.jspiders.controller;
 
-import java.util.Optional;
-
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.te.jspiders.dto.EmployeeDto;
 import com.te.jspiders.response.ApiResponse;
-import com.te.jspiders.service.EmployeeService;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @RequiredArgsConstructor
-@RequestMapping(path = "/api/employee")
+@RequestMapping(path = "/auth/employee")
 @RestController
 public class EmployeeController {
 
-	private final EmployeeService employeeService;
+	@PutMapping(path = "/update")
+	public ApiResponse<String> updateEmployee() {
+		return new ApiResponse<String>("Employee update successfull!", null, "Update api being used");
+	}
 
-	@PostMapping(path = "/register")
-	public ApiResponse<String> registerEmployee(@RequestBody EmployeeDto employeeDto) {
-		log.info("EmployeeController:registerEmployee execution start, {}", employeeDto);
-		Optional<String> empId = employeeService.registerEmployee(employeeDto);
-		if (empId.isPresent()) {
-			return new ApiResponse<String>("Employee registration successfull!", null, empId.get());
-		}
-		throw new RuntimeException("Employee registration failed");
+	@DeleteMapping(path = "/delete")
+	public ApiResponse<String> deleteEmployee() {
+		return new ApiResponse<String>("Employee delete successfull!", null, "Delete api being used");
+	}
+
+	@PutMapping(path = "/changePassword")
+	public ApiResponse<String> changePassword() {
+		return new ApiResponse<String>("Employee change password successfull!", null, "Change password api being used");
 	}
 }
